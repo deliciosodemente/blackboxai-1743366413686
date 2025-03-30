@@ -3,122 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Interface</title>
+    <title>Bruto AR Combat</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --neon-blue: #00f7ff;
-            --dark-blue: #0a192f;
-            --cyber-blue: #64ffda;
-        }
-        
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background: var(--dark-blue);
-            color: #fff;
-        }
-        
-        .orbitron {
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .cyber-border {
-            position: relative;
-            border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 15px var(--neon-blue);
-        }
-        
-        .cyber-border::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 1px solid var(--neon-blue);
-            opacity: 0.3;
-            pointer-events: none;
-        }
-        
-        .hex-bg {
-            background-image: radial-gradient(var(--neon-blue) 1px, transparent 1px);
-            background-size: 30px 30px;
-            opacity: 0.1;
-        }
-        
-        .cyber-button {
-            position: relative;
-            background: transparent;
-            border: 2px solid var(--cyber-blue);
-            color: var(--cyber-blue);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .cyber-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .cyber-button:hover::before {
-            left: 100%;
-        }
-        
-        .cyber-button:hover {
-            box-shadow: 0 0 20px var(--cyber-blue);
-            text-shadow: 0 0 5px var(--cyber-blue);
-        }
-        
-        .status-circle {
-            width: 200px;
-            height: 200px;
-            border: 3px solid var(--neon-blue);
-            border-radius: 50%;
-            position: relative;
-            animation: pulse 2s infinite;
-        }
-        
-        .status-circle::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 180px;
-            height: 180px;
-            border: 1px solid var(--neon-blue);
-            border-radius: 50%;
-            opacity: 0.5;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.4); }
-            70% { box-shadow: 0 0 0 20px rgba(0, 247, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0); }
-        }
-        
-        .loading-bar {
-            height: 4px;
-            background: linear-gradient(90deg, var(--neon-blue) 0%, var(--cyber-blue) 100%);
-            animation: loading 2s infinite;
-        }
-        
-        @keyframes loading {
-            0% { width: 0%; }
-            50% { width: 100%; }
-            100% { width: 0%; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
     <!-- Hexagonal Background -->
@@ -127,12 +16,12 @@
     <!-- Navigation -->
     <nav class="relative z-10 p-6">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="orbitron text-2xl font-bold text-cyan-400">CYBER<span class="text-cyan-200">INTERFACE</span></div>
+            <div class="orbitron text-2xl font-bold text-cyan-400">BRUTO<span class="text-cyan-200">ARENA</span></div>
             <div class="flex space-x-8">
-                <a href="#" class="hover:text-cyan-400 transition-colors">HOME</a>
-                <a href="#" class="hover:text-cyan-400 transition-colors">SYSTEMS</a>
-                <a href="#" class="hover:text-cyan-400 transition-colors">NETWORK</a>
-                <a href="#" class="hover:text-cyan-400 transition-colors">ACCESS</a>
+                <a href="#" class="hover:text-cyan-400 transition-colors">BATTLE</a>
+                <a href="#" class="hover:text-cyan-400 transition-colors">CUSTOMIZE</a>
+                <a href="#" class="hover:text-cyan-400 transition-colors">RANKINGS</a>
+                <a href="#" class="hover:text-cyan-400 transition-colors">PROFILE</a>
             </div>
         </div>
     </nav>
@@ -140,87 +29,88 @@
     <!-- Main Content -->
     <main class="relative z-10 container mx-auto px-4 py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <!-- Left Column -->
+            <!-- Left Column - Character Stats -->
             <div class="space-y-8">
                 <h1 class="orbitron text-5xl font-bold leading-tight">
-                    <span class="text-cyan-400">Neural</span>
-                    <span class="block">Interface</span>
-                    <span class="block text-cyan-400">System</span>
+                    <span class="text-cyan-400">Create Your</span>
+                    <span class="block">Ultimate</span>
+                    <span class="block text-cyan-400">Warrior</span>
                 </h1>
                 
-                <p class="text-gray-400 text-lg">
-                    Access the next generation of human-machine interface technology. 
-                    Connect, control, and command with unprecedented precision.
-                </p>
-                
-                <div class="flex space-x-4">
-                    <button class="cyber-button px-8 py-3 rounded-lg font-semibold">
-                        Initialize
-                    </button>
-                    <button class="cyber-button px-8 py-3 rounded-lg font-semibold">
-                        Connect
-                    </button>
+                <div class="space-y-4">
+                    <!-- Base Stats -->
+                    <div class="stat-group">
+                        <div class="text-cyan-400 mb-2">STRENGTH</div>
+                        <div class="w-48 h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="loading-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="text-cyan-400 mb-2">AGILITY</div>
+                        <div class="w-48 h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="loading-bar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="text-cyan-400 mb-2">SPEED</div>
+                        <div class="w-48 h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="loading-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Status Indicators -->
-                <div class="flex space-x-8 text-sm">
-                    <div>
-                        <div class="text-cyan-400 mb-2">SYSTEM STATUS</div>
-                        <div class="w-48 h-2 bg-gray-800 rounded-full overflow-hidden">
-                            <div class="loading-bar"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="text-cyan-400 mb-2">NEURAL LINK</div>
-                        <div class="w-48 h-2 bg-gray-800 rounded-full overflow-hidden">
-                            <div class="loading-bar"></div>
-                        </div>
-                    </div>
+                <div class="flex space-x-4">
+                    <button id="startBattle" class="cyber-button px-8 py-3 rounded-lg font-semibold">
+                        Enter AR Battle
+                    </button>
+                    <button id="scanObject" class="cyber-button px-8 py-3 rounded-lg font-semibold">
+                        Scan Weapon
+                    </button>
                 </div>
             </div>
             
-            <!-- Right Column -->
+            <!-- Right Column - Character Preview -->
             <div class="relative">
                 <div class="cyber-border rounded-2xl p-8 bg-gray-900/50 backdrop-blur-sm">
-                    <!-- Central Status Circle -->
+                    <!-- Character Preview Circle -->
                     <div class="flex justify-center mb-8">
                         <div class="status-circle flex items-center justify-center">
                             <div class="text-center">
-                                <div class="orbitron text-xl font-bold text-cyan-400">CORE</div>
-                                <div class="text-sm text-cyan-200">ACTIVE</div>
+                                <div class="orbitron text-xl font-bold text-cyan-400">BRUTO</div>
+                                <div class="text-sm text-cyan-200">LEVEL 10</div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Status Grid -->
+                    <!-- Combat Stats -->
                     <div class="grid grid-cols-2 gap-6">
                         <div class="text-center">
                             <div class="text-cyan-400 mb-2">
-                                <i class="fas fa-microchip text-2xl"></i>
+                                <i class="fas fa-fist-raised text-2xl"></i>
                             </div>
-                            <div class="text-sm text-cyan-200">PROCESSOR</div>
-                            <div class="text-xs text-gray-400">OPTIMAL</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-cyan-400 mb-2">
-                                <i class="fas fa-network-wired text-2xl"></i>
-                            </div>
-                            <div class="text-sm text-cyan-200">NETWORK</div>
-                            <div class="text-xs text-gray-400">CONNECTED</div>
+                            <div class="text-sm text-cyan-200">MARTIAL ARTS</div>
+                            <div class="text-xs text-gray-400">MASTER</div>
                         </div>
                         <div class="text-center">
                             <div class="text-cyan-400 mb-2">
                                 <i class="fas fa-shield-alt text-2xl"></i>
                             </div>
-                            <div class="text-sm text-cyan-200">SECURITY</div>
-                            <div class="text-xs text-gray-400">ENABLED</div>
+                            <div class="text-sm text-cyan-200">DEFENSE</div>
+                            <div class="text-xs text-gray-400">ELITE</div>
                         </div>
                         <div class="text-center">
                             <div class="text-cyan-400 mb-2">
-                                <i class="fas fa-database text-2xl"></i>
+                                <i class="fas fa-bolt text-2xl"></i>
                             </div>
-                            <div class="text-sm text-cyan-200">STORAGE</div>
-                            <div class="text-xs text-gray-400">87% FREE</div>
+                            <div class="text-sm text-cyan-200">INITIATIVE</div>
+                            <div class="text-xs text-gray-400">HIGH</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-cyan-400 mb-2">
+                                <i class="fas fa-eye text-2xl"></i>
+                            </div>
+                            <div class="text-sm text-cyan-200">6TH SENSE</div>
+                            <div class="text-xs text-gray-400">ACTIVE</div>
                         </div>
                     </div>
                 </div>
@@ -231,5 +121,38 @@
             </div>
         </div>
     </main>
+
+    <!-- Battle Arena (Initially Hidden) -->
+    <div id="gameArea" class="hidden fixed inset-0 bg-gray-900 z-50">
+        <div class="game-container">
+            <!-- Combat HUD -->
+            <div class="health-bar">
+                <div class="health-bar-fill" style="width: 100%"></div>
+            </div>
+            <div class="combo-counter">COMBO: 0</div>
+            
+            <!-- Special Move Indicators -->
+            <div class="special-moves">
+                <div class="move martial-arts">
+                    <i class="fas fa-fist-raised"></i>
+                </div>
+                <div class="move sixth-sense">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="move counter-attack">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Feedback Display -->
+    <div id="voiceFeedback" class="voice-feedback">
+        <!-- Voice feedback messages will appear here -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="voiceSystem.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
