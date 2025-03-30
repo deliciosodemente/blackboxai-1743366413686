@@ -1,0 +1,154 @@
+/* Custom styles to complement Tailwind CSS */
+
+/* Smooth scrolling and default styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    transition: background-color 0.3s ease;
+}
+
+/* Navigation button styles */
+.nav-btn {
+    @apply px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-700 transition-all;
+}
+
+.nav-btn.active {
+    @apply bg-blue-600 text-white;
+}
+
+/* Game button styles */
+.game-btn {
+    @apply bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-lg transition-all;
+}
+
+/* Section transitions */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom switch toggle for settings */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #374151;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2563eb;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Game area styles */
+#gameArea {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#gameArea.active {
+    border: 2px solid #2563eb;
+}
+
+/* Score animation */
+@keyframes scorePopup {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.score-popup {
+    animation: scorePopup 0.3s ease;
+}
+
+/* Button hover effects */
+.start-btn:hover {
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+}
+
+/* Game container glow effect on active state */
+.game-container.active {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-btn {
+        @apply px-2 py-1 text-sm;
+    }
+    
+    .nav-btn i {
+        @apply mr-0;
+    }
+    
+    .nav-btn span {
+        display: none;
+    }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #374151;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
